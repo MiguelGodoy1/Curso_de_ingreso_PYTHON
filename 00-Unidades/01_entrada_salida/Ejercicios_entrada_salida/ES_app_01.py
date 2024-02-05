@@ -26,6 +26,7 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
+        alert("primer programa","Esto no anda, funciona")
         pass
 
 
@@ -33,3 +34,4 @@ if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
