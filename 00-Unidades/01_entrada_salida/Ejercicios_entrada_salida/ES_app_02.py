@@ -21,13 +21,15 @@ class App(customtkinter.CTk):
         super().__init__()
         
         self.title("UTN FRA")
-       
+    
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
 
     def btn_mostrar_on_click(self):
-        pass
+        #descripcion_producto = "Coca-Cola"
+        descripcion_producto = prompt("Datos","Ingrese la descripcion del producto")
+        alert ("Descripcion",descripcion_producto) 
         
         
     
