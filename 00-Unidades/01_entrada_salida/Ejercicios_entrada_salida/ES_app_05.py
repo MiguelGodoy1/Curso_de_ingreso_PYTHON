@@ -27,7 +27,7 @@ class App(customtkinter.CTk):
         self.label1.grid(row=0, column=0, padx=20, pady=10)
         
         self.txt_nombre = customtkinter.CTkEntry(master=self)
-        self.txt_nombre.grid(row=0, column=1)
+        self.txt_nombre.grid(row=0, column=1) 
         
         self.label2 = customtkinter.CTkLabel(master=self, text="Edad")
         self.label2.grid(row=1, column=0, padx=20, pady=10)
