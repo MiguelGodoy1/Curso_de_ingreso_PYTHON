@@ -43,8 +43,66 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        lamparas_valor = 800
+        cant_lamparas = int(self.combobox_cantidad.get())
+        marca_lamparas = self.combobox_marca.get()
+        descuento = ""
+        mensaje = ""
+        precio_total = lamparas_valor * cant_lamparas
+
+        if cant_lamparas >= 6 :
+            descuento = precio_total / 2
+            mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 50%")
+
+        elif cant_lamparas < 3 :
+            precio_total = cant_lamparas * lamparas_valor
+            mensaje = ("El precio final es de " + str(precio_total))
+
+        elif marca_lamparas == "ArgentinaLuz" :
+
+            if cant_lamparas == 5 :
+                descuento = precio_total * 0.6
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 40%")
+
+            elif cant_lamparas == 4 :
+                descuento = precio_total * 0.75
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 25%")
+
+            elif cant_lamparas == 3 :
+                descuento = precio_total * 0.85
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 15%")
+
+        elif marca_lamparas == "FelipeLamparas" :
+            
+            if cant_lamparas == 4 :
+                descuento = precio_total * 0.75
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 25%")
+
+            elif cant_lamparas == 3 :
+                descuento = precio_total * 0.9
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 10%")
+
+        elif marca_lamparas != "Argentinaluz" and marca_lamparas != "FelipeLamparas" :
+            
+            if cant_lamparas == 5 :
+                descuento = precio_total * 0.7
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 30%") 
+
+            elif cant_lamparas == 4:
+                descuento = precio_total * 0.8
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 20%")
+
+            elif cant_lamparas == 3:
+                descuento = precio_total * 0.95
+                mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 5%")
+            
+        else :
+                if precio_total >= 4000:
+                    descuento = precio_total *95
+                    mensaje = ("El precio final es de " + str(descuento) + " con el descuento del 5%")
         
+        alert("UTN", mensaje)
+
     
 if __name__ == "__main__":
     app = App()
