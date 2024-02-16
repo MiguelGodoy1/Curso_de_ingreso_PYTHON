@@ -34,7 +34,11 @@ class App(customtkinter.CTk):
         while contador <= 10 :
             alert ("Utn", contador)
             contador = contador + 1
+            #respuesta = question ("UTN", "Desea continuar?")
+            #if not respuesta :
+            #  break
 
+        alert ("Utn", "Fin")
 
     
     
