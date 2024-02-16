@@ -29,9 +29,14 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
-    
-    
+        numero = 1
+        variable_sumando= 0
+
+        while numero <= 10 :
+            if numero % 2 == 0 :
+                variable_sumando += variable_sumando
+            numero = numero + 1
+        alert ("UTN", f"La suma del 1 al 10 de numeros pares es {variable_sumando}")
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
