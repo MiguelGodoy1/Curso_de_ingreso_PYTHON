@@ -57,7 +57,68 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        estaciones = self.combobox_estaciones.get()
+        destino = self.combobox_destino.get()
+        
+        mensaje_desc= "descuento"
+        mensaje_aumen = "aumento"
+
+        estadia =15000        
+
+        match (estaciones):
+            case "Invierno":
+
+                match (destino):
+                    case "Mar del plata":
+                        descuento = 0.80
+                        estadia = (estadia * descuento)
+                        mensaje= f"La estadia sale {estadia} con el {mensaje_desc} aplicado del 20%"
+
+                    case "Cataratas" | "Cordoba" :
+                        descuento = 0.90
+                        estadia = (estadia * descuento)
+                        mensaje= f"La estadia sale {estadia} con el {mensaje_desc} aplicado del 10%"
+
+                
+                    
+                    case "Bariloche" :
+                        aumento = 1.20
+                        estadia = (estadia * aumento)
+                        mensaje = f"La estadia sale {estadia} con el {mensaje_aumen} aplicado del 20%"
+                        
+            case "Verano":
+
+                match(destino):
+                    case "Mar del plata":
+                        aumento = 1.20
+                        estadia = estadia * aumento
+                        mensaje = f"La estadia sale {estadia} con el {mensaje_aumen} aplicado del 20%"
+
+                    case "Cataratas" | "Cordoba" :
+                        aumento = 1*10
+                        estadia = estadia * aumento
+                        mensaje = f"La estadia sale {estadia} con el {mensaje_aumen} aplicado del 10%"
+
+                    case "Bariloche" :
+                        descuento = 0.80
+                        estadia = estadia * descuento
+                        mensaje= f"La estadia sale {estadia} con el {mensaje_desc} aplicado del 10%"
+                    
+            case _:
+                
+                match(destino):
+                    case "Cordoba":
+                        mensaje= f"La estadia sale {estadia} sin ningun descuento aplicado"
+
+                    case _:
+                        aumento = 1.10
+                        estadia = estadia * aumento
+                        mensaje= f"La estadia sale {estadia} con el {mensaje_aumen} aplicado del 10%"
+
+
+                        
+        alert("UTN", mensaje)
+
             
     
 if __name__ == "__main__":
