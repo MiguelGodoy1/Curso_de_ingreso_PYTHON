@@ -45,15 +45,13 @@ class App(customtkinter.CTk):
 
         while True:
             numeros = prompt ("UTN", "Ingrese un numero: ")
-            numeros = int(numeros)
-            suma =+ suma
-            contador = contador + 1 
-            if contador != 0:
-                pass
-            else :
-                prompt == None
+            
+            if numeros != None :
+                numeros = int(numeros)
+                suma += numeros
+                contador +=  1 
+            elif numeros == None :
                 break
-        
                 
                 
             
