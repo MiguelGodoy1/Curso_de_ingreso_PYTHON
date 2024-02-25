@@ -26,8 +26,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
         
+        for i in range (0, 10):
+            valores = prompt("Datos", "Ingrese 10 valores diferentes que no sean el 9")
+            if valores == "9" :
+                break
     
 if __name__ == "__main__":
     app = App()
