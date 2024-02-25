@@ -26,7 +26,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = 5
+        for i in range (0, 5):
+            alert ("Mensaje", numero)
+            numero -= 1
+        # numero = 6
+        # for i in range (0,5):
+        #     numero -= 1
+        #     alert ("Mensaje", numero)
        
             
 
