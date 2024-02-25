@@ -41,9 +41,8 @@ class App(customtkinter.CTk):
 
         self.label2 = customtkinter.CTkLabel(master=self, text="Estado")
         self.label2.grid(row=2, column=0, padx=20, pady=10)
-        self.combobox_tipo = customtkinter.CTkComboBox(
-            master=self, values=["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"])
-        self.combobox_tipo.grid(row=2, column=1, padx=20, pady=10)
+        self.txt_tipo = customtkinter.CTkEntry(master=self)
+        self.txt_tipo.grid(row=2, column=1, padx=20, pady=10)
 
         self.label3 = customtkinter.CTkLabel(master=self, text="Legajo")
         self.label3.grid(row=3, column=0, padx=20, pady=10)
@@ -55,13 +54,34 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
+        
         apellido = prompt ("UTN", "Ingrese su apellido: ")
         while apellido == None or apellido == "":
-            aellido = prompt ()
-            pass
+            apellido = prompt ("Error","Reingrese su apellido: ")
 
+        edad = prompt ("Datos","Ingrese su edad: ")
+        while (edad == None or edad == "")or (int(edad) < 18 or int(edad) >99):
+            edad = prompt ("Error", "Reingrese su edad: ")
+        edad = int(edad)
 
+        tipo = prompt ("Datos", "Ingrese su estado civil: ")
+        while tipo != "Soltero/a" and tipo != "Casado/a" and tipo != "Viudo/a" and tipo != "Divorciado/a": 
+            tipo = prompt ("Error", "Reingrese su estado civil: ")
 
+        legajo = prompt ("Datos", "Ingrese su nº de legajo :")
+        while (legajo == None or legajo == "") or (int(legajo) <1000 or int (legajo) >9999):
+            legajo = prompt("Error", "Reingrese su nº de legajo: ")
+        legajo= int(legajo)
+
+        
+        self.txt_apellido.delete (0, "end")
+        self.txt_edad.delete (0, "end")
+        self.txt_tipo.delete (0, "end")
+        self.txt_legajo.delete (0, "end")
+        self.txt_apellido.insert (0, apellido)
+        self.txt_edad.insert (0, edad)
+        self.txt_tipo.insert (0,tipo)
+        self.txt_legajo.insert (0, legajo)
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
